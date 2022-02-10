@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} Inventory || Customer Record {% endblock %}
+
+{% block content %}
+
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h4 class="box-title">List of Customers</h4>
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Customer FullName</th>
+                                <th>Customer PhoneNumber</th>
+                             
+                                <th>Order History</th>
+                            </tr>
+                            
+
+
+                            {% if customer %}
+                            
+                                {% for obj in customer %}
+                                   
+
+                                    <tr>
+                                        <td>{{ obj.get_full_name }}</td>
+                                        <td>{{ obj.customer.phone_number }}</td>
+                                        <td>
+                                            <a href="{% url 'customer-order' obj.id  %}"> Order History </a> | 
+                                            <a href="{% url 'customer-order' obj.id  %}"> View Profile </a> 
+                                        </td>
+                                        
+                                    </tr>
+                                      
+                                 
+                                
+                                   
+
+
+                                {% endfor %}
+                            {% endif %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

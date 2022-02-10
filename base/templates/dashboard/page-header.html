@@ -1,0 +1,24 @@
+<section class="content-header">
+    <h1> Dashboard <small>Control panel</small></h1>
+    <ol class="breadcrumb">
+        
+    {% if request.user.is_sales %}
+            
+        <li><a href="{% url 'sales-dashboard' %}"><i class="fa fa-dashboard"></i> My Dashboard</a></li>
+        <!-- <a href="{% url 'sales-dashboard' %}"><li class="active">Dashboard</li></a> -->
+    
+    {% elif request.user.is_customer %}
+
+            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <a href=""><li class="active">Dashboard</li></a>
+    
+    {% else %}
+
+        <li><a href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <a href="{% url 'dashboard' %}"><li class="active">Dashboard</li></a>
+
+    {% endif %}
+            
+       
+    </ol>
+</section>

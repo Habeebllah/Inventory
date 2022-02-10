@@ -1,0 +1,79 @@
+{% load static %}
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <div class="pull-left image">
+            <img src="{% static 'dist/img/admin.png' %}" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+            <p>{% if request.user.first_name  or request.user.last_name %} {{ request.user.first_name }}
+                {{ request.user.last_name }} {% else %} {{ request.user.username }} {% endif %}</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+    </div>
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN FEATURES</li>
+        
+        <li class="active">
+            <a href="{% url 'sales-dashboard' %}">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                <span class="pull-right-container">
+            </span>
+            </a>
+        </li>
+        
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-first-order"></i>
+                <span>POS</span>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{% url 'pos_view' %}"><i class="fa fa-circle-o"></i> Create Order</a></li>
+                <li><a href="{% url 'order_information' %}"><i class="fa fa-circle-o"></i> Order Record</a></li>
+            </ul>
+        </li>
+
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-first-order"></i>
+                <span>Customer</span>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{% url 'create-customer' %}"><i class="fa fa-circle-o"></i> New Customer</a></li>
+                <li><a href="{% url 'list-customer' %}"><i class="fa fa-circle-o"></i> List Customer</a></li>
+
+               
+            </ul>
+        </li>
+
+        
+       
+       
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-gears"></i>
+                <span>Setting</span>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Password Change</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Change User Details</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> User Profile</a></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<!-- /.sidebar -->
